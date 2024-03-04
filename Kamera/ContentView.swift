@@ -6,19 +6,40 @@
 //
 
 import SwiftUI
-import AVKit
 
 struct ContentView: View {
+    @StateObject private var model = frameHandler()
+    
     var body: some View {
-        VStack {
+        ZStack{
+            frameView(image: model.frame)
+                .ignoresSafeArea()
+            
+            VStack{
+                Spacer()
+                Button(action: {
+                    let photo = model.frame != nil ? model.frame : nil
+                    if photo != nil{
+                        print("Taking picture ... ")
+                    }
+                }, label: {
+                    Image(systemName: "camera.aperture")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                })
+                .zIndex(1)
+            }
             
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
