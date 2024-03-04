@@ -13,6 +13,7 @@
 		6F2344C12B9591610011440D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2344C02B9591610011440D /* Preview Assets.xcassets */; };
 		6F49076F2B95ADC700C0833D /* frameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49076E2B95ADC700C0833D /* frameView.swift */; };
 		6F4907712B95AE2B00C0833D /* frameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4907702B95AE2B00C0833D /* frameHandler.swift */; };
+		90CB82792B9631B800CD29A4 /* fileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CB82782B9631B800CD29A4 /* fileHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		6F2344C02B9591610011440D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F49076E2B95ADC700C0833D /* frameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameView.swift; sourceTree = "<group>"; };
 		6F4907702B95AE2B00C0833D /* frameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameHandler.swift; sourceTree = "<group>"; };
+		90CB82782B9631B800CD29A4 /* fileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				6F2344B92B9591580011440D /* KameraApp.swift */,
 				6F2344BB2B9591580011440D /* ContentView.swift */,
+				90CB82782B9631B800CD29A4 /* fileHandler.swift */,
 				6F4907702B95AE2B00C0833D /* frameHandler.swift */,
 				6F49076E2B95ADC700C0833D /* frameView.swift */,
 				6F2344BD2B9591610011440D /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				6F49076F2B95ADC700C0833D /* frameView.swift in Sources */,
 				6F2344BC2B9591580011440D /* ContentView.swift in Sources */,
 				6F4907712B95AE2B00C0833D /* frameHandler.swift in Sources */,
+				90CB82792B9631B800CD29A4 /* fileHandler.swift in Sources */,
 				6F2344BA2B9591580011440D /* KameraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

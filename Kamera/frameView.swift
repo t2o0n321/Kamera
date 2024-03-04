@@ -14,6 +14,8 @@ struct frameView: View {
     var body: some View {
         if let image = image {
             Image(image, scale: 1.0, orientation: .up, label: self.label)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }else{
             Color.black
         }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import ImageIO
+import CoreServices
 
 struct ContentView: View {
     @StateObject private var model = frameHandler()
@@ -18,9 +20,16 @@ struct ContentView: View {
             VStack{
                 Spacer()
                 Button(action: {
+                    /*
+                        Save image to Document
+                     */
                     let photo = model.frame != nil ? model.frame : nil
                     if photo != nil{
                         print("Taking picture ... ")
+                        let fileMngr = fileManager()
+                        let imgDst = CGImageDestinationCreateWithURL(fileMngr.genFileUrl() as CFURL, kUTTypePNG, 1, nil)
+                        CGImageDestinationAddImage(imgDst!, photo!, nil)
+                        CGImageDestinationFinalize(imgDst!)
                     }
                 }, label: {
                     Image(systemName: "camera.aperture")
@@ -29,7 +38,6 @@ struct ContentView: View {
                 })
                 .zIndex(1)
             }
-            
         }
     }
 }
