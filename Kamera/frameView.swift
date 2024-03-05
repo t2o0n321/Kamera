@@ -25,7 +25,6 @@ struct frameView: View {
                     .resizable()
                     .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .blur(radius: 10.0)
-//                    .grayscale(1.0)
             }
         }else{
             Color.black

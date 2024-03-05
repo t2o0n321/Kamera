@@ -14,6 +14,7 @@ class fileManager{
         let documentPath = NSSearchPathForDirectoriesInDomains(documentFolderPath, userDomainMask, true)
         self.sdbxDirPath = self.sdbxDirPath == nil ? documentPath[0] : ""
     }
+    public func getSdbxDirPath() -> String {return self.sdbxDirPath!}
     public func genFileUrl() -> URL{
         var fileName: String = ""
         let now = Date()

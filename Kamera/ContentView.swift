@@ -9,9 +9,14 @@ import SwiftUI
 import ImageIO
 import CoreServices
 
+let fileMngr = fileManager()
+let sdbxPath = fileMngr.getSdbxDirPath()
+var latestCGImage: CGImage?
+
 struct ContentView: View {
     @State private var canDoOutput: Bool = true
     @StateObject private var model = frameHandler()
+//    @State var showImageViewer: Bool = true
     
     var body: some View {
         ZStack{
@@ -20,15 +25,38 @@ struct ContentView: View {
             frameView(image: model.frame, canDoOutput: model.canDoOutput)
                 .ignoresSafeArea()
             
+            /*
+                Top bar
+             */
             VStack{
                 HStack{
+                    Text(" ")
+                }
+                .padding(.top, 40)
+                .frame(width: UIScreen.main.bounds.width)
+                .background(.black.opacity(0.9))
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .top)
+            
+            /*
+                Bottom bar
+             */
+            VStack{
+                HStack{
+                    // Preview picture
+//                    VStack{
+//                        Text("preview")
+//                    }
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                    .overlay(ImageViewer(image: latestCGImage!, viewerShown: self.$showImageViewer))
+                    
                     // Button responsible for taking picture
                     var takePictureBtn = Button(action: {
                         // Save image to Document
                         let photo = model.frame != nil ? model.frame : nil
+                        latestCGImage = photo
                         if photo != nil{
                             print("Taking picture ... ")
-                            let fileMngr = fileManager()
                             let imgDst = CGImageDestinationCreateWithURL(fileMngr.genFileUrl() as CFURL, kUTTypePNG, 1, nil)
                             CGImageDestinationAddImage(imgDst!, photo!, nil)
                             CGImageDestinationFinalize(imgDst!)
@@ -38,10 +66,10 @@ struct ContentView: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                     })
-                        .padding()
+                    .padding()
                     
                     // If camera is disabled, make button disabled too
-                    canDoOutput ? takePictureBtn.disabled(false) : takePictureBtn.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                    canDoOutput ? takePictureBtn.disabled(false) : takePictureBtn.disabled(true)
                     
                     // Determine whether to enable the camera or not
                     var cameraEnableToggle = Toggle(isOn: $canDoOutput){
@@ -51,16 +79,17 @@ struct ContentView: View {
                             Image(systemName: "camera.circle")
                         }
                     }
-                    .font(.system(size: 30))
-                    .toggleStyle(.button)
-                    .clipShape(Circle())
-                    .onChange(of: canDoOutput){ value in
-                        model.updateCanDoOutputState(canDo: canDoOutput)
-                    }
+                        .font(.system(size: 30))
+                        .toggleStyle(.button)
+                        .clipShape(Circle())
+                        .onChange(of: canDoOutput){ value in
+                            model.updateCanDoOutputState(canDo: canDoOutput)
+                        }
                     canDoOutput ? cameraEnableToggle.tint(.red) : cameraEnableToggle.tint(.green)
                 }
+                .padding(.top, 20)
                 .frame(width: UIScreen.main.bounds.width)
-                .background(.gray.opacity(0.5))
+                .background(.black.opacity(0.9))
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
         

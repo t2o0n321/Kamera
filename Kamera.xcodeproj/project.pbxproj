@@ -13,6 +13,7 @@
 		6F2344C12B9591610011440D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2344C02B9591610011440D /* Preview Assets.xcassets */; };
 		6F49076F2B95ADC700C0833D /* frameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49076E2B95ADC700C0833D /* frameView.swift */; };
 		6F4907712B95AE2B00C0833D /* frameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4907702B95AE2B00C0833D /* frameHandler.swift */; };
+		9061CB132B975DD4002D0AAF /* imageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9061CB122B975DD0002D0AAF /* imageViewer.swift */; };
 		90CB82792B9631B800CD29A4 /* fileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CB82782B9631B800CD29A4 /* fileHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		6F285B762B971162000F8E7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6F49076E2B95ADC700C0833D /* frameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameView.swift; sourceTree = "<group>"; };
 		6F4907702B95AE2B00C0833D /* frameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameHandler.swift; sourceTree = "<group>"; };
+		9061CB122B975DD0002D0AAF /* imageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewer.swift; sourceTree = "<group>"; };
 		90CB82782B9631B800CD29A4 /* fileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 			children = (
 				6F2344B92B9591580011440D /* KameraApp.swift */,
 				6F2344BB2B9591580011440D /* ContentView.swift */,
+				9061CB122B975DD0002D0AAF /* imageViewer.swift */,
 				90CB82782B9631B800CD29A4 /* fileHandler.swift */,
 				6F4907702B95AE2B00C0833D /* frameHandler.swift */,
 				6F49076E2B95ADC700C0833D /* frameView.swift */,
@@ -162,6 +165,7 @@
 				6F49076F2B95ADC700C0833D /* frameView.swift in Sources */,
 				6F2344BC2B9591580011440D /* ContentView.swift in Sources */,
 				6F4907712B95AE2B00C0833D /* frameHandler.swift in Sources */,
+				9061CB132B975DD4002D0AAF /* imageViewer.swift in Sources */,
 				90CB82792B9631B800CD29A4 /* fileHandler.swift in Sources */,
 				6F2344BA2B9591580011440D /* KameraApp.swift in Sources */,
 			);
