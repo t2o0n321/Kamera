@@ -19,9 +19,10 @@
 /* Begin PBXFileReference section */
 		6F2344B62B9591580011440D /* Kamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2344B92B9591580011440D /* KameraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KameraApp.swift; sourceTree = "<group>"; };
-		6F2344BB2B9591580011440D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6F2344BB2B9591580011440D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		6F2344BD2B9591610011440D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F2344C02B9591610011440D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6F285B762B971162000F8E7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6F49076E2B95ADC700C0833D /* frameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameView.swift; sourceTree = "<group>"; };
 		6F4907702B95AE2B00C0833D /* frameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameHandler.swift; sourceTree = "<group>"; };
 		90CB82782B9631B800CD29A4 /* fileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileHandler.swift; sourceTree = "<group>"; };
@@ -41,6 +42,7 @@
 		6F2344AD2B9591580011440D = {
 			isa = PBXGroup;
 			children = (
+				6F285B762B971162000F8E7A /* README.md */,
 				6F2344B82B9591580011440D /* Kamera */,
 				6F2344B72B9591580011440D /* Products */,
 				6F2344C72B95946E0011440D /* Frameworks */,

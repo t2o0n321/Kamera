@@ -12,6 +12,7 @@ class frameHandler: NSObject, ObservableObject{
         Variables
      */
     @Published var frame: CGImage?
+    @Published var canDoOutput: Bool = true
     private var isPermissionGranted: Bool = false
     private var captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
@@ -53,7 +54,9 @@ class frameHandler: NSObject, ObservableObject{
         let videoOutput = AVCaptureVideoDataOutput()
         // Return if permission not granted
         guard self.isPermissionGranted else {return}
-        guard let videoDevice = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position: .back) else {return}
+        // Return if output is disabled
+        guard self.canDoOutput else {return}
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {return}
         guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {return}
         guard captureSession.canAddInput(videoDeviceInput) else {return}
         captureSession.addInput(videoDeviceInput)
@@ -62,12 +65,29 @@ class frameHandler: NSObject, ObservableObject{
         captureSession.addOutput(videoOutput)
         videoOutput.connection(with: .video)?.videoOrientation = .portrait
     }
+    
+    func updateCanDoOutputState(canDo: Bool){
+        self.canDoOutput = canDo
+        if self.canDoOutput {
+            // If camera is enabled
+            // Setup cature session
+            self.setupCaptureSession()
+        }else{
+            // If camera is disabled
+            // Remove all cureent inputs and outputs
+            self.captureSession.inputs.forEach { input in
+                self.captureSession.removeInput(input)
+            }
+            self.captureSession.outputs.forEach{ output in
+                self.captureSession.removeOutput(output)
+            }
+        }
+    }
 }
 
 extension frameHandler: AVCaptureVideoDataOutputSampleBufferDelegate{
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let cgImg = self.imageFromSampleBuffer(sampleBuffer: sampleBuffer) else {return}
-        
         DispatchQueue.main.async {
             [unowned self] in
                 self.frame = cgImg
