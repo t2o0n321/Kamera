@@ -10,11 +10,16 @@ import ImageIO
 import CoreServices
 
 let fileMngr = fileManager()
+<<<<<<< HEAD
+var topTwoImages: Array<URL> = fileMngr.getTwoRecentImages()
+=======
 let sdbxPath = fileMngr.getSdbxDirPath()
 var latestCGImage: CGImage?
+>>>>>>> ,,`
 
 struct ContentView: View {
     @State private var canDoOutput: Bool = true
+    @State private var zoomTimes: CGFloat = 1.0
     @StateObject private var model = frameHandler()
 //    @State var showImageViewer: Bool = true
     
@@ -42,13 +47,54 @@ struct ContentView: View {
                 Bottom bar
              */
             VStack{
+                /** Zoom bar  */
                 HStack{
+                    Spacer()
+                    // x1
+                    Button(action: {
+                        zoomTimes = 1.0
+                    }, label: {
+                        Text("x1")
+                    })
+                    Spacer()
+                    // x1.5
+                    Button(action: {
+                        zoomTimes = 1.5
+                    }, label: {
+                        Text("x1.5")
+                    })
+                    Spacer()
+                    // x2
+                    Button(action: {
+                        zoomTimes = 2.0
+                    }, label: {
+                        Text("x2")
+                    })
+                    Spacer()
+                }
+                .fontWeight(.bold)
+                .font(.system(.title3,design: .rounded))
+                .foregroundColor(.white)
+
+                /** Capture and toggle output  */
+                HStack{
+<<<<<<< HEAD
+                    // Preview Frame
+                    // Update the top two images everytime when the view update
+                    let _ = {
+                        topTwoImages = fileMngr.getTwoRecentImages()
+                        print("Set top two")
+                    }()
+                    
+                    
+=======
                     // Preview picture
 //                    VStack{
 //                        Text("preview")
 //                    }
 //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
 //                    .overlay(ImageViewer(image: latestCGImage!, viewerShown: self.$showImageViewer))
+>>>>>>> ,,`
                     
                     // Button responsible for taking picture
                     var takePictureBtn = Button(action: {
@@ -91,18 +137,18 @@ struct ContentView: View {
                 .frame(width: UIScreen.main.bounds.width)
                 .background(.black.opacity(0.9))
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         
         }
     }
 }
 
-#Preview {
-    ContentView()
-}
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
+//#Preview {
+//    ContentView()
 //}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}

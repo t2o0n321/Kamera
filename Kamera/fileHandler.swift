@@ -23,4 +23,7 @@ class fileManager{
         fileName = dateFormatter.string(from: now).components(separatedBy: "(")[0]
         return URL(fileURLWithPath: "\(self.sdbxDirPath!)/\(fileName).png")
     }
+    public func getTwoRecentImages() -> Array<URL> {
+        return []
+    }
 }
